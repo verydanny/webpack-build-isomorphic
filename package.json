@@ -14,12 +14,13 @@
   "author": "Daniil Veremchuk",
   "license": "MIT",
   "private": false,
-  "main": "index.js",
+  "main": "lib/index.js",
   "files": [
     "lib"
   ],
   "scripts": {
-    "release": "yarn publish"
+    "release": "yarn publish",
+    "tsc:watch": "tsc -w"
   },
   "peerDependencies": {
     "express": "^4.0.0",
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "compose-middleware": "^5.0.1",
+    "lodash": "^4.17.11",
     "lodash.castarray": "^4.4.0",
     "lodash.merge": "^4.6.1",
     "lodash.omitby": "^4.6.0",
@@ -35,11 +37,20 @@
     "webpack-sane-compiler-notifier": "^2.1.1"
   },
   "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/lodash": "^4.14.120",
+    "@types/node": "^10.12.21",
+    "@types/webpack": "^4.4.24",
+    "@types/webpack-env": "^1.13.7",
     "eslint": "5.12.0",
     "eslint-config-prettier": "3.3.0",
     "eslint-plugin-prettier": "3.0.1",
-    "express": "^4.15.2",
+    "express": "^4.16.4",
     "prettier": "1.15.3",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-origin-ordered-imports-rule": "^1.1.2",
+    "typescript": "^3.3.1",
     "webpack": "^4.16.2"
   }
 }

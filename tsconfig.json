@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "strict": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "forceConsistentCasingInFileNames": true,
+    "pretty": true,
+    "declaration": true,
+    "outDir": "lib"
+  },
+  "include": [
+    "index.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    ".eslintrc.js",
+    "babel.config.js",
+  ]
+}
