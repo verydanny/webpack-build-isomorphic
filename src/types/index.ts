@@ -3,14 +3,20 @@ import { MultiCompiler, Compiler, Stats, compilation } from 'webpack'
 type Filter<T, U> = T extends U ? T : never
 type Diff<T,U> = T extends U ? never : T
 
+
+export type TypeIsomorphicA = [ MultiCompiler, Options ]
+export type TypeIsomorphicB = [ Compiler, Compiler, Options ]
+export type TypeIsomorphic = TypeIsomorphicA | TypeIsomorphicB
+
 export interface Options {
   memoryFs: boolean,
   watchDelay: number,
   watchOptions: undefined,
   report: {
-    stats: 'once'
+    stats?: 'once',
+    write?: () => void,
   },
-  notify: boolean,
+  notify: boolean | {},
   headers: {
     [x: string]: string,
   },
@@ -23,10 +29,16 @@ export interface Stats extends Stats {
   }
 }
 
-export type TypeParseArgsReturn = {
-  compiler: any,
-  options: any,
+interface CompilerStub {
+  webpackCompiler: Compiler,
 }
 
-export type TypeIsomorphicA = [ MultiCompiler, Options ]
-export type TypeIsomorphicB = [ Compiler, Compiler, Options ]
+interface IsoCompiler {
+  client: CompilerStub,
+  server: CompilerStub,
+}
+
+export interface ParseReturns {
+  compiler: IsoCompiler,
+  options: Options,
+}
